@@ -3,3 +3,4 @@ export 'transit_route.dart';
 export 'incident_report.dart';
 export 'risk_assessment.dart';
 export 'sos_alert.dart';
+export 'monthly_safety_report.dart';

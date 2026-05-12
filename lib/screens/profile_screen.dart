@@ -8,9 +8,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../providers/auth_provider.dart';
 import '../services/auth_service.dart';
+import '../services/monthly_report_service.dart';
 import 'route_history_screen.dart';
 import 'saved_routes_screen.dart';
 import 'settings_screen.dart';
+import 'monthly_report_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -32,6 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   bool _isEditing = false;
   bool _isLoading = false;
   bool _isUploadingPhoto = false;
+  bool _isGeneratingReport = false;
   DateTime? _lastEmailVerificationSent;
   DateTime? _verificationCooldownUntil;
   String? _photoUrlOverride;
@@ -321,6 +324,48 @@ class _ProfileScreenState extends State<ProfileScreen>
             duration: const Duration(seconds: 10),
           ),
         );
+      }
+    }
+  }
+
+  Future<void> _generateMonthlyReport() async {
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final user = authProvider.currentUser;
+    if (user == null) return;
+
+    setState(() => _isGeneratingReport = true);
+
+    try {
+      // Generate report for current month
+      final currentPeriod = DateTime(DateTime.now().year, DateTime.now().month);
+      
+      final report = await MonthlyReportService.generateMonthlyReport(
+        userId: user.id,
+        userName: user.displayName ?? 'SafeRoute User',
+        period: currentPeriod,
+      );
+
+      // Navigate to report screen to display it
+      if (mounted) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => MonthlyReportScreen(report: report),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to generate report: $e'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 5),
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isGeneratingReport = false);
       }
     }
   }
@@ -621,6 +666,24 @@ class _ProfileScreenState extends State<ProfileScreen>
                                   ),
                                 );
                               },
+                            ),
+                            const Divider(height: 1),
+                            ListTile(
+                              leading: _isGeneratingReport
+                                  ? const SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                      ),
+                                    )
+                                  : const Icon(Icons.assessment),
+                              title: const Text('Monthly Safety Report'),
+                              subtitle: const Text('Generate PDF report'),
+                              trailing: const Icon(Icons.arrow_forward_ios),
+                              onTap: _isGeneratingReport
+                                  ? null
+                                  : _generateMonthlyReport,
                             ),
                             const Divider(height: 1),
                             ListTile(
