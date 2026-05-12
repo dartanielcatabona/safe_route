@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 380) rotate(90) scale(220)">
+      <stop offset="0" stop-color="#FFEFA8"/>
+      <stop offset="0.45" stop-color="#F5C96A"/>
+      <stop offset="1" stop-color="#B36B2F"/>
+    </radialGradient>
+    <linearGradient id="shield" x1="312" y1="170" x2="712" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9D38A"/>
+      <stop offset="0.5" stop-color="#6CB48A"/>
+      <stop offset="1" stop-color="#1B5360"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="246" y1="186" x2="778" y2="840" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F1D38A"/>
+      <stop offset="1" stop-color="#B8893C"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="430" y1="250" x2="594" y2="640" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF3B8"/>
+      <stop offset="1" stop-color="#F5C95A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="none"/>
+
+  <circle cx="512" cy="420" r="300" fill="#184F5D" opacity="0.95"/>
+  <circle cx="512" cy="420" r="286" fill="url(#ring)" opacity="0.25"/>
+  <circle cx="512" cy="420" r="278" fill="#174F5D" stroke="url(#ring)" stroke-width="18"/>
+  <circle cx="512" cy="420" r="248" fill="url(#shield)" stroke="#0E3F48" stroke-width="12"/>
+
+  <path d="M512 176 L708 262 V438 C708 568 628 676 512 742 C396 676 316 568 316 438 V262 L512 176Z" fill="#154B56" stroke="url(#ring)" stroke-width="16"/>
+  <path d="M512 208 L676 278 V432 C676 550 610 644 512 699 C414 644 348 550 348 432 V278 L512 208Z" fill="#1D5A67" stroke="#B9D38A" stroke-width="8"/>
+  <path d="M512 244 L650 302 V427 C650 529 596 611 512 657 C428 611 374 529 374 427 V302 L512 244Z" fill="#214E5B" opacity="0.7"/>
+
+  <g opacity="0.9">
+    <path d="M390 288 C416 258 448 238 512 214 C576 238 608 258 634 288 C606 290 578 300 556 318 C545 294 532 276 512 262 C492 276 479 294 468 318 C446 300 418 290 390 288Z" fill="#E8D28E"/>
+    <path d="M390 288 C413 308 430 334 442 366 C458 332 483 306 512 292 C541 306 566 332 582 366 C594 334 611 308 634 288" stroke="#E8D28E" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <path d="M394 280 H630 C653 280 671 298 671 321 V683 C671 706 653 724 630 724 H394 C371 724 353 706 353 683 V321 C353 298 371 280 394 280Z" fill="#3E5C67" stroke="#1A4F59" stroke-width="10"/>
+  <path d="M404 288 H620 C639 288 654 303 654 322 V669 C654 688 639 703 620 703 H404 C385 703 370 688 370 669 V322 C370 303 385 288 404 288Z" fill="#667C87"/>
+  <path d="M412 309 H612 C626 309 638 321 638 335 V652 C638 666 626 678 612 678 H412 C398 678 386 666 386 652 V335 C386 321 398 309 412 309Z" fill="url(#screen)"/>
+  <rect x="441" y="274" width="122" height="12" rx="6" fill="#1B3F46" opacity="0.8"/>
+  <circle cx="512" cy="694" r="24" fill="#54717A" stroke="#35525B" stroke-width="8"/>
+  <circle cx="512" cy="694" r="8" fill="#34515A"/>
+  <circle cx="494" cy="278" r="4" fill="#1B3F46"/>
+
+  <path d="M512 362 C536 362 556 382 556 406 C556 430 536 450 512 450 C488 450 468 430 468 406 C468 382 488 362 512 362Z" fill="url(#glow)" stroke="#C79A3A" stroke-width="8"/>
+  <path d="M512 381 L527 397 L541 381 L535 405 L551 419 L530 419 L522 441 L512 421 L502 441 L494 419 L473 419 L489 405 L483 381 L497 397 Z" fill="#FFF9D8" opacity="0.96"/>
+  <path d="M512 336 C563 336 604 377 604 428 C604 479 563 520 512 520 C461 520 420 479 420 428 C420 377 461 336 512 336Z" stroke="#B98937" stroke-width="12" opacity="0.95"/>
+
+  <path d="M350 450 C336 440 328 423 328 405 C328 375 352 351 382 351 C397 351 410 357 420 367" stroke="#F2C98F" stroke-width="30" stroke-linecap="round" opacity="0.85"/>
+  <path d="M674 450 C688 440 696 423 696 405 C696 375 672 351 642 351 C627 351 614 357 604 367" stroke="#F2C98F" stroke-width="30" stroke-linecap="round" opacity="0.85"/>
+
+  <path d="M360 312 C345 316 333 329 328 345 C320 373 311 414 312 461 C313 520 332 566 354 599" stroke="#EBC993" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+  <path d="M664 312 C679 316 691 329 696 345 C704 373 713 414 712 461 C711 520 692 566 670 599" stroke="#EBC993" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+
+  <path d="M293 780 C376 732 438 707 512 707 C586 707 648 732 731 780" stroke="#2A6A68" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
+  <path d="M320 820 C389 788 444 775 512 775 C580 775 635 788 704 820" stroke="#2B7B74" stroke-width="12" stroke-linecap="round" opacity="0.55"/>
+
+  <text x="512" y="860" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" letter-spacing="3" fill="#114B56">SAFEROUTE</text>
+  <text x="512" y="915" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="500" fill="#114B56">Your Protected Path</text>
+</svg>
